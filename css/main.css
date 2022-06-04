@@ -1,0 +1,76 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    background: #333;
+}
+.bulb-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 600px;
+}
+.switcher{
+    background: #212121;
+    position: relative;
+    width: 70px;
+    height: 150px;
+    border-radius: 5px;
+    margin-top: -100px;
+}
+.switcher input{
+    appearance: none;
+}
+.switcher span{
+    background: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: yellow;
+    border: 3px solid yellow;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.off-mode{
+    opacity: 0;
+}
+.switcher input:checked ~ span{
+    top: 80px;
+    background: yellow;
+}
+.switcher input:checked ~ .off-mode{
+    opacity: 1;
+    color: #333;
+}
+.switcher input:checked ~ .on-mode{
+    opacity: 0;
+}
+.bulb{
+    background: url(../images/bulb.png);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 200px;
+    height: 300px;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: 0.5s;
+}
+.switcher input:checked ~ .bulb{
+    background: url(../images/bulb-on.png);
+    background-position: center;
+    background-size: cover;
+}
